@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>একটি গোপন গল্প ❤️</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    min-height:100vh;
+    background:
+    radial-gradient(circle at 50% 30%,#65002f,transparent 35%),
+    linear-gradient(135deg,#090009,#250014,#080008);
+    color:white;
+    font-family:Georgia,"Noto Serif Bengali",serif;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+.container{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:30px 20px;
+}
+
+.small{
+    color:#ffabc9;
+    letter-spacing:3px;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:58px;
+    color:#ff91b8;
+    text-shadow:0 0 30px #ff1768;
+    margin-bottom:15px;
+}
+
+.intro{
+    max-width:600px;
+    color:#ffd9e6;
+    font-size:20px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+/* Countdown */
+
+.countdown{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:45px;
+}
+
+.box{
+    width:100px;
+    padding:17px 8px;
+    border:1px solid #ff6d9d55;
+    background:#ffffff0d;
+    border-radius:18px;
+    backdrop-filter:blur(10px);
+}
+
+.box span{
+    display:block;
+    font-size:31px;
+    color:#ff79a8;
+    font-weight:bold;
+}
+
+.box small{
+    color:#ffd3e1;
+}
+
+/* Envelope */
+
+.envelope{
+    width:150px;
+    height:105px;
+    background:#ff3d79;
+    position:relative;
+    margin:20px auto 35px;
+    border-radius:8px;
+    cursor:pointer;
+    box-shadow:0 0 35px #ff3978;
+    transition:.4s;
+}
+
+.envelope:hover{
+    transform:scale(1.08);
+}
+
+.envelope:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    border-left:75px solid transparent;
+    border-right:75px solid transparent;
+    border-top:65px solid #ff82a9;
+}
+
+.heart{
+    position:absolute;
+    top:36px;
+    left:63px;
+    font-size:28px;
+    z-index:3;
+}
+
+/* Puzzle */
+
+.puzzle{
+    display:none;
+    max-width:550px;
+    width:100%;
+    background:#ffffff0d;
+    border:1px solid #ffffff20;
+    padding:30px;
+    border-radius:25px;
+    backdrop-filter:blur(12px);
+}
+
+.puzzle h2{
+    color:#ff91b8;
+    margin-bottom:15px;
+}
+
+.puzzle p{
+    line-height:1.8;
+    color:#ffe0e9;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border-radius:30px;
+    border:1px solid #ff5b8e;
+    background:#15000b;
+    color:white;
+    outline:none;
+    text-align:center;
+    font-size:16px;
+}
+
+button{
+    margin-top:15px;
+    padding:13px 28px;
+    border:none;
+    border-radius:30px;
+    background:#ff3978;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 0 18px #ff3978;
+}
+
+#error{
+    color:#ff8faf;
+    margin-top:15px;
+}
+
+#next{
+    display:none;
+}
+
+/* floating hearts */
+
+.float{
+    position:fixed;
+    bottom:-30px;
+    animation:rise linear forwards;
+    pointer-events:none;
+}
+
+@keyframes rise{
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+@media(max-width:600px){
+    h1{font-size:40px}
+    .intro{font-size:17px}
+    .box{width:78px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="small">A SECRET STORY FOR YOU</div>
+
+<h1>Liza ❤️</h1>
+
+<p class="intro">
+তোমার জন্য একটা ছোট্ট রহস্য লুকিয়ে রেখেছি... 🌹<br>
+কিন্তু সেটা খুঁজে পেতে হলে তোমাকে কয়েকটা ধাপ পার হতে হবে।
+</p>
+
+<div class="countdown">
+
+<div class="box">
+<span id="days">00</span>
+<small>দিন</small>
+</div>
+
+<div class="box">
+<span id="hours">00</span>
+<small>ঘণ্টা</small>
+</div>
+
+<div class="box">
+<span id="minutes">00</span>
+<small>মিনিট</small>
+</div>
+
+<div class="box">
+<span id="seconds">00</span>
+<small>সেকেন্ড</small>
+</div>
+
+</div>
+
+<div class="envelope" onclick="openLetter()">
+<div class="heart">❤️</div>
+</div>
+
+<p style="color:#ffb5ca">
+✉️ চিঠিটা খুলতে ক্লিক করো
+</p>
+
+<div class="puzzle" id="puzzle">
+
+<h2>🔐 প্রথম রহস্য</h2>
+
+<p>
+আমি যত বেশি ভাগ করে দাও,<br>
+তত বেশি বেড়ে যাই।<br>
+আমি কী?
+</p>
+
+<input id="answer" placeholder="উত্তর লিখো...">
+
+<button onclick="checkAnswer()">উত্তর দাও ❤️</button>
+
+<div id="error"></div>
+
+<button id="next" onclick="goNext()">
+🚪 Secret Door খুলুন
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* Countdown */
+
+const birthday =
+new Date("September 18, 2026 00:00:00").getTime();
+
+setInterval(function(){
+
+const now=new Date().getTime();
+const distance=birthday-now;
+
+if(distance<=0){
+
+document.querySelector(".countdown").innerHTML=
+"<h2 style='color:#ff8fb4'>🎂 আজ Liza-এর Birthday! ❤️</h2>";
+
+return;
+}
+
+document.getElementById("days").innerText=
+Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("hours").innerText=
+String(Math.floor(
+(distance%(1000*60*60*24))/(1000*60*60)
+)).padStart(2,"0");
+
+document.getElementById("minutes").innerText=
+String(Math.floor(
+(distance%(1000*60*60))/(1000*60)
+)).padStart(2,"0");
+
+document.getElementById("seconds").innerText=
+String(Math.floor(
+(distance%(1000*60))/1000
+)).padStart(2,"0");
+
+},1000);
+
+
+/* Envelope */
+
+function openLetter(){
+
+document.getElementById("puzzle").style.display="block";
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+
+}
+
+
+/* Answer */
+
+function checkAnswer(){
+
+let answer=
+document.getElementById("answer").value
+.trim()
+.toLowerCase();
+
+if(
+answer.includes("ভালোবাসা") ||
+answer.includes("ভালবাসা") ||
+answer.includes("love")
+){
+
+document.getElementById("error").innerHTML=
+"✨ ঠিক উত্তর! তুমি প্রথম রহস্য সমাধান করেছো ❤️";
+
+document.getElementById("next").style.display="inline-block";
+
+}else{
+
+document.getElementById("error").innerHTML=
+"❌ উত্তরটা ঠিক হয়নি... আবার চেষ্টা করো 💕";
+
+}
+
+}
+
+
+function goNext(){
+
+window.location.href="page2.html";
+
+}
+
+
+/* Floating Hearts */
+
+setInterval(function(){
+
+let h=document.createElement("div");
+
+h.className="float";
+
+h.innerHTML=["❤️","💕","💗","✨"][Math.floor(Math.random()*4)];
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=(15+Math.random()*25)+"px";
+
+h.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),10000);
+
+},700);
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,1586 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Liza ❤️ আমাদের গল্প</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+background:
+radial-gradient(circle at 50% 0%,#850038,transparent 35%),
+radial-gradient(circle at 10% 90%,#40001f,transparent 30%),
+linear-gradient(135deg,#050005,#210011,#070006);
+
+color:white;
+
+font-family:Georgia,"Noto Serif Bengali",serif;
+
+min-height:100vh;
+
+text-align:center;
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+OPENING SCREEN
+========================= */
+
+#opening{
+
+position:fixed;
+
+inset:0;
+
+background:#050005;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+flex-direction:column;
+
+z-index:9999;
+
+transition:1.5s;
+
+}
+
+#opening h2{
+
+font-size:45px;
+
+color:#ff91b8;
+
+text-shadow:
+0 0 15px #ff1768,
+0 0 40px #ff1768;
+
+animation:pulse 2s infinite;
+
+}
+
+#opening p{
+
+margin-top:15px;
+
+color:#ffd6e4;
+
+font-size:18px;
+
+}
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.08);
+}
+
+}
+
+/* =========================
+MUSIC BUTTON
+========================= */
+
+#musicBtn{
+
+position:fixed;
+
+top:20px;
+
+right:20px;
+
+z-index:9998;
+
+padding:11px 18px;
+
+border:1px solid #ff91b8;
+
+border-radius:30px;
+
+background:
+linear-gradient(135deg,#ff3978,#ff1768);
+
+color:white;
+
+font-size:14px;
+
+cursor:pointer;
+
+box-shadow:
+0 0 15px #ff3978,
+0 0 30px #ff397855;
+
+transition:.3s;
+
+}
+
+#musicBtn:hover{
+
+transform:scale(1.08);
+
+}
+
+/* =========================
+MAIN
+========================= */
+
+main{
+
+padding:80px 18px 100px;
+
+}
+
+h1{
+
+font-size:clamp(38px,7vw,58px);
+
+color:#ff91b8;
+
+text-shadow:
+0 0 10px #ff1768,
+0 0 35px #ff1768;
+
+margin-bottom:12px;
+
+}
+
+.subtitle{
+
+font-size:18px;
+
+line-height:1.8;
+
+color:#ffd6e4;
+
+margin-bottom:25px;
+
+}
+
+.secret-line{
+
+color:#ff8fb5;
+
+font-size:15px;
+
+margin-bottom:45px;
+
+}
+
+/* =========================
+PROGRESS
+========================= */
+
+.progress-box{
+
+max-width:500px;
+
+margin:0 auto 45px;
+
+}
+
+.progress-text{
+
+color:#ffc4d8;
+
+margin-bottom:10px;
+
+font-size:14px;
+
+}
+
+.progress{
+
+height:8px;
+
+background:#ffffff15;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+.progress-bar{
+
+height:100%;
+
+width:0%;
+
+background:linear-gradient(
+90deg,
+#ff1768,
+#ff91b8
+);
+
+box-shadow:0 0 15px #ff3978;
+
+transition:1s;
+
+}
+
+/* =========================
+GALLERY
+========================= */
+
+.gallery{
+
+max-width:1050px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(210px,1fr));
+
+gap:28px;
+
+}
+
+.card{
+
+position:relative;
+
+background:#ffffff0a;
+
+border:1px solid #ffffff1b;
+
+padding:10px;
+
+border-radius:22px;
+
+backdrop-filter:blur(12px);
+
+cursor:pointer;
+
+transition:.5s;
+
+box-shadow:
+0 15px 35px #00000055;
+
+overflow:hidden;
+
+}
+
+.card:nth-child(odd){
+
+transform:rotate(-1.5deg);
+
+}
+
+.card:nth-child(even){
+
+transform:rotate(1.5deg);
+
+}
+
+.card:hover{
+
+transform:
+scale(1.05)
+rotate(0deg);
+
+box-shadow:
+0 0 35px #ff397866;
+
+}
+
+.card img{
+
+width:100%;
+
+height:260px;
+
+object-fit:cover;
+
+border-radius:16px;
+
+display:block;
+
+}
+
+.caption{
+
+padding:13px 5px 7px;
+
+color:#ffd8e4;
+
+font-size:15px;
+
+}
+
+/* =========================
+IMAGE NUMBER
+========================= */
+
+.number{
+
+position:absolute;
+
+left:17px;
+
+top:17px;
+
+width:30px;
+
+height:30px;
+
+border-radius:50%;
+
+background:#00000088;
+
+border:1px solid #ffffff33;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:13px;
+
+color:#ffd6e4;
+
+}
+
+/* =========================
+HIDDEN HEART
+========================= */
+
+.hidden-heart{
+
+position:absolute;
+
+right:15px;
+
+top:15px;
+
+width:38px;
+
+height:38px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+font-size:18px;
+
+opacity:.02;
+
+cursor:pointer;
+
+z-index:20;
+
+transition:.5s;
+
+}
+
+.hidden-heart:hover{
+
+opacity:.9;
+
+transform:scale(1.5);
+
+filter:
+drop-shadow(0 0 10px #ff3978);
+
+}
+
+.hidden-heart.found{
+
+opacity:1;
+
+animation:
+heartbeat .6s infinite alternate;
+
+}
+
+@keyframes heartbeat{
+
+to{
+
+transform:scale(1.5);
+
+filter:
+drop-shadow(0 0 20px #ff3978);
+
+}
+
+}
+
+/* =========================
+SECRET BOX
+========================= */
+
+.secret-box{
+
+max-width:650px;
+
+margin:70px auto 0;
+
+padding:35px 25px;
+
+background:#ffffff08;
+
+border:
+1px solid #ffffff1b;
+
+border-radius:28px;
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+0 0 40px #ff176820;
+
+}
+
+.secret-box h2{
+
+color:#ff91b8;
+
+margin-bottom:15px;
+
+}
+
+.secret-box p{
+
+color:#ffd9e6;
+
+line-height:1.9;
+
+}
+
+.clue{
+
+margin-top:20px;
+
+padding:15px;
+
+border-radius:15px;
+
+background:#ff39780d;
+
+border:1px dashed #ff397855;
+
+color:#ffb7cd;
+
+}
+
+#message{
+
+min-height:35px;
+
+margin-top:20px;
+
+color:#ffabc7;
+
+line-height:1.7;
+
+}
+
+#success{
+
+margin-top:18px;
+
+color:#ffb3ce;
+
+font-size:18px;
+
+}
+
+/* =========================
+BUTTON
+========================= */
+
+button{
+
+border:0;
+
+padding:14px 30px;
+
+border-radius:30px;
+
+background:
+linear-gradient(135deg,#ff3978,#ff1768);
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+box-shadow:
+0 0 15px #ff3978,
+0 0 35px #ff397855;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.07);
+
+}
+
+#secretButton{
+
+display:none;
+
+margin-top:25px;
+
+}
+
+/* =========================
+IMAGE MODAL
+========================= */
+
+#modal{
+
+position:fixed;
+
+inset:0;
+
+background:#000000e8;
+
+display:none;
+
+align-items:center;
+
+justify-content:center;
+
+z-index:5000;
+
+padding:20px;
+
+}
+
+.modal-content{
+
+max-width:700px;
+
+width:100%;
+
+background:#16000d;
+
+border:1px solid #ff397855;
+
+border-radius:25px;
+
+padding:15px;
+
+box-shadow:
+0 0 50px #ff176855;
+
+animation:modalIn .4s;
+
+}
+
+@keyframes modalIn{
+
+from{
+
+transform:scale(.7);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+.modal-content img{
+
+width:100%;
+
+max-height:65vh;
+
+object-fit:contain;
+
+border-radius:18px;
+
+}
+
+.memory{
+
+color:#ffd4e2;
+
+font-size:18px;
+
+line-height:1.8;
+
+padding:18px 8px 8px;
+
+}
+
+.close{
+
+margin-top:10px;
+
+padding:9px 20px;
+
+font-size:14px;
+
+}
+
+/* =========================
+FINAL TRANSITION
+========================= */
+
+#finalScreen{
+
+position:fixed;
+
+inset:0;
+
+background:#050005;
+
+display:none;
+
+align-items:center;
+
+justify-content:center;
+
+flex-direction:column;
+
+z-index:10000;
+
+}
+
+#finalScreen h2{
+
+font-size:35px;
+
+color:#ff91b8;
+
+text-shadow:0 0 25px #ff1768;
+
+}
+
+#finalScreen p{
+
+margin:15px 0 25px;
+
+color:#ffd6e4;
+
+}
+
+/* =========================
+FLOATING HEARTS
+========================= */
+
+.heart{
+
+position:fixed;
+
+bottom:-40px;
+
+pointer-events:none;
+
+animation:up linear forwards;
+
+z-index:1;
+
+}
+
+@keyframes up{
+
+to{
+
+transform:
+translateY(-110vh)
+rotate(20deg);
+
+opacity:0;
+
+}
+
+}
+
+/* =========================
+MOUSE PARTICLE
+========================= */
+
+.particle{
+
+position:fixed;
+
+pointer-events:none;
+
+font-size:12px;
+
+color:#ff91b8;
+
+z-index:8000;
+
+animation:particle .8s forwards;
+
+}
+
+@keyframes particle{
+
+to{
+
+transform:
+translateY(-30px)
+scale(0);
+
+opacity:0;
+
+}
+
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:600px){
+
+main{
+
+padding:80px 12px 80px;
+
+}
+
+.gallery{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:15px;
+
+}
+
+.card img{
+
+height:190px;
+
+}
+
+.caption{
+
+font-size:13px;
+
+}
+
+.secret-box{
+
+padding:25px 18px;
+
+}
+
+#opening h2{
+
+font-size:35px;
+
+}
+
+#musicBtn{
+
+top:12px;
+
+right:12px;
+
+padding:8px 14px;
+
+font-size:12px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================
+BACKGROUND MUSIC
+========================= -->
+
+<audio id="bgMusic" loop>
+
+<source src="song2.mp3" type="audio/mpeg">
+
+</audio>
+
+
+<!-- MUSIC BUTTON -->
+
+<button id="musicBtn" onclick="toggleMusic()">
+
+🎵 গান চালু করো
+
+</button>
+
+
+<!-- =========================
+OPENING
+========================= -->
+
+<div id="opening">
+
+<h2>Liza... ❤️</h2>
+
+<p>এই গল্পটা শুধু তোমার জন্য...</p>
+
+</div>
+
+
+<!-- =========================
+MAIN
+========================= -->
+
+<main>
+
+
+<h1>📸 আমাদের গল্প</h1>
+
+
+<p class="subtitle">
+
+এই ছবিগুলোর মধ্যে আছে<br>
+
+কিছু সুন্দর স্মৃতি, কিছু অনুভূতি... ❤️
+
+</p>
+
+
+<p class="secret-line">
+
+কিন্তু সব ছবির গল্প এক নয়... 👀
+
+</p>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-box">
+
+<div class="progress-text">
+
+LOVE JOURNEY ❤️
+
+<span id="progressText">0%</span>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="progressBar">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- GALLERY -->
+
+<div class="gallery">
+
+
+<!-- PHOTO 1 -->
+
+<div class="card"
+onclick="openMemory(1)">
+
+<div class="number">01</div>
+
+<img src="photo1.JPEG">
+
+<div class="caption">
+
+একটি সুন্দর স্মৃতি ❤️
+
+</div>
+
+</div>
+
+
+<!-- PHOTO 2 -->
+
+<div class="card"
+onclick="openMemory(2)">
+
+<div class="number">02</div>
+
+<img src="photo2.JPEG">
+
+<div class="caption">
+
+একটু ভালোবাসা 🌹
+
+</div>
+
+</div>
+
+
+<!-- PHOTO 3 -->
+
+<div class="card"
+onclick="openMemory(3)">
+
+<div class="number">03</div>
+
+<img src="photo3.JPEG">
+
+<div class="caption">
+
+একটি হাসি 💕
+
+</div>
+
+</div>
+
+
+<!-- PHOTO 4 -->
+
+<div class="card"
+onclick="openMemory(4)">
+
+<div class="number">04</div>
+
+<img src="photo4.JPEG">
+
+<div class="caption">
+
+একটি মুহূর্ত ✨
+
+</div>
+
+</div>
+
+
+<!-- PHOTO 5 -->
+
+<div class="card"
+onclick="openMemory(5)">
+
+<div class="number">05</div>
+
+<img src="photo5.JPEG">
+
+<div class="caption">
+
+কিছু অনুভূতি ❤️
+
+</div>
+
+</div>
+
+
+<!-- PHOTO 6 -->
+
+<div class="card"
+onclick="openMemory(6)">
+
+<div class="number">06</div>
+
+<img src="photo6.JPEG">
+
+<div class="caption">
+
+কিছু কথা 💗
+
+</div>
+
+</div>
+
+
+<!-- PHOTO 7 -->
+
+<div class="card"
+onclick="openMemory(7)">
+
+<div class="number">07</div>
+
+<img src="photo7.JPEG">
+
+<div class="caption">
+
+একটি গল্প 🌹
+
+</div>
+
+</div>
+
+
+<!-- PHOTO 8 -->
+
+<div class="card">
+
+<div class="number">08</div>
+
+<img src="photo8.JPEG">
+
+
+<!-- HIDDEN HEART -->
+
+<div
+class="hidden-heart"
+id="hiddenHeart"
+onclick="findHeart(event)"
+>
+❤️
+</div>
+
+
+<div class="caption">
+
+শেষ ছবিটা একটু ভালো করে দেখো... 🔐
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+SECRET BOX
+========================= -->
+
+<div class="secret-box">
+
+<h2>🔐 Secret Lock</h2>
+
+
+<p>
+
+৮টি ছবির মধ্যে একটি ছবির মধ্যে<br>
+
+লুকিয়ে আছে একটি বিশেষ ❤️
+
+<br><br>
+
+তোমাকে শুধু ছবিগুলো একটু মন দিয়ে দেখতে হবে...
+
+</p>
+
+
+<div class="clue">
+
+💡 <b>একটা ছোট্ট Hint:</b><br>
+
+“যেখানে গল্প শেষ হয়,<br>
+
+সেখানেই হয়তো রহস্য শুরু হয়...” 👀
+
+</div>
+
+
+<div id="message"></div>
+
+<div id="success"></div>
+
+
+<button
+id="secretButton"
+onclick="goNext()"
+>
+
+📖 শেষ অধ্যায়ে যাও ❤️
+
+</button>
+
+
+</div>
+
+
+</main>
+
+
+<!-- =========================
+IMAGE MODAL
+========================= -->
+
+<div id="modal">
+
+<div class="modal-content">
+
+<img id="modalImage">
+
+<div
+class="memory"
+id="memoryText">
+</div>
+
+<button
+class="close"
+onclick="closeModal()"
+>
+
+বন্ধ করো ❤️
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+FINAL SCREEN
+========================= -->
+
+<div id="finalScreen">
+
+<h2>তুমি রহস্যটা খুঁজে পেয়েছো! ❤️</h2>
+
+<p>
+শেষ অধ্যায় তোমার অপেক্ষায়...
+</p>
+
+<button onclick="goNext()">
+
+চলো যাই 📖
+
+</button>
+
+</div>
+
+
+<script>
+
+/* =========================
+MUSIC
+========================= */
+
+const bgMusic =
+document.getElementById("bgMusic");
+
+const musicBtn =
+document.getElementById("musicBtn");
+
+
+function toggleMusic(){
+
+if(bgMusic.paused){
+
+bgMusic.play();
+
+musicBtn.innerHTML=
+"⏸️ গান বন্ধ করো";
+
+}else{
+
+bgMusic.pause();
+
+musicBtn.innerHTML=
+"🎵 গান চালু করো";
+
+}
+
+}
+
+
+/* =========================
+OPENING
+========================= */
+
+setTimeout(function(){
+
+document.getElementById("opening").style.opacity="0";
+
+setTimeout(function(){
+
+document.getElementById("opening").style.display="none";
+
+},1500);
+
+},2500);
+
+
+/* =========================
+MEMORIES
+========================= */
+
+const memories=[
+
+"এই ছবিটা হয়তো শুধু একটা ছবি... কিন্তু আমার কাছে এটা একটা সুন্দর অনুভূতি। ❤️",
+
+"কিছু মুহূর্ত খুব ছোট হয়, কিন্তু মনে অনেকদিন থেকে যায়। 🌹",
+
+"তোমার হাসির মতো সুন্দর জিনিস খুব বেশি নেই... 💕",
+
+"কিছু ছবি কথা বলে না, তবুও অনেক কিছু বলে যায়। ✨",
+
+"এই মুহূর্তটাকে মনে রাখার মতোই সুন্দর লাগে। ❤️",
+
+"কিছু অনুভূতি ছবিতে ধরা যায় না... শুধু অনুভব করা যায়। 💗",
+
+"আমাদের গল্পের প্রতিটা ছোট মুহূর্তই আলাদা সুন্দর। 🌹"
+
+];
+
+
+function openMemory(number){
+
+document.getElementById("modal").style.display="flex";
+
+
+document.getElementById("modalImage").src=
+"photo"+number+".JPEG";
+
+
+document.getElementById("memoryText").innerHTML=
+memories[number-1];
+
+
+updateProgress(number);
+
+}
+
+
+function closeModal(){
+
+document.getElementById("modal").style.display="none";
+
+}
+
+
+/* =========================
+PROGRESS
+========================= */
+
+let viewed=[];
+
+
+function updateProgress(number){
+
+if(!viewed.includes(number)){
+
+viewed.push(number);
+
+}
+
+
+let percent=Math.round(
+(viewed.length/8)*100
+);
+
+
+document.getElementById("progressBar").style.width=
+percent+"%";
+
+
+document.getElementById("progressText").innerHTML=
+percent+"%";
+
+}
+
+
+/* =========================
+HIDDEN HEART
+========================= */
+
+function findHeart(event){
+
+event.stopPropagation();
+
+
+let heart=
+document.getElementById("hiddenHeart");
+
+heart.classList.add("found");
+
+
+document.getElementById("message").innerHTML="";
+
+
+document.getElementById("success").innerHTML=
+"🎉 তুমি লুকানো ভালোবাসা খুঁজে পেয়েছো! ❤️<br><small>তুমি সত্যিই মন দিয়ে খুঁজেছো... 🥰</small>";
+
+
+document.getElementById("secretButton").style.display=
+"inline-block";
+
+
+/* 100% */
+
+document.getElementById("progressBar").style.width=
+"100%";
+
+
+document.getElementById("progressText").innerHTML=
+"100%";
+
+
+/* HEART EXPLOSION */
+
+for(let i=0;i<35;i++){
+
+let h=document.createElement("div");
+
+
+h.innerHTML=
+["❤️","💕","💗","✨","🌹"]
+[Math.floor(Math.random()*5)];
+
+
+h.style.position="fixed";
+
+h.style.left="50%";
+
+h.style.top="50%";
+
+h.style.fontSize=
+(15+Math.random()*25)+"px";
+
+h.style.zIndex="9999";
+
+h.style.pointerEvents="none";
+
+
+let x=
+(Math.random()*700)-350;
+
+
+let y=
+(Math.random()*700)-350;
+
+
+h.animate(
+
+[
+
+{
+
+transform:
+"translate(-50%,-50%) scale(0)",
+
+opacity:1
+
+},
+
+{
+
+transform:
+`translate(calc(-50% + ${x}px),
+calc(-50% + ${y}px))
+scale(1.5)`,
+
+opacity:0
+
+}
+
+],
+
+{
+
+duration:
+1200+Math.random()*700,
+
+easing:"ease-out"
+
+}
+
+);
+
+
+document.body.appendChild(h);
+
+
+setTimeout(
+()=>h.remove(),
+2200
+);
+
+}
+
+}
+
+
+/* =========================
+PAGE 3
+========================= */
+
+function goNext(){
+
+/* Stop Page 2 music */
+
+bgMusic.pause();
+
+bgMusic.currentTime=0;
+
+
+/* Show final screen */
+
+document.getElementById("finalScreen").style.display=
+"flex";
+
+
+/* Go to Page 3 */
+
+setTimeout(function(){
+
+window.location.href="page3.html";
+
+},2500);
+
+}
+
+
+/* =========================
+FLOATING HEARTS
+========================= */
+
+setInterval(function(){
+
+let h=document.createElement("div");
+
+
+h.className="heart";
+
+
+h.innerHTML=
+["❤️","💕","💗","✨","🌹"]
+[Math.floor(Math.random()*5)];
+
+
+h.style.left=
+Math.random()*100+"vw";
+
+
+h.style.fontSize=
+(15+Math.random()*25)+"px";
+
+
+h.style.animationDuration=
+(5+Math.random()*5)+"s";
+
+
+document.body.appendChild(h);
+
+
+setTimeout(
+()=>h.remove(),
+10000
+);
+
+},650);
+
+
+/* =========================
+MOUSE EFFECT
+========================= */
+
+document.addEventListener(
+"mousemove",
+function(e){
+
+if(Math.random()>0.75){
+
+let p=document.createElement("div");
+
+
+p.className="particle";
+
+
+p.innerHTML="♡";
+
+
+p.style.left=
+e.clientX+"px";
+
+
+p.style.top=
+e.clientY+"px";
+
+
+document.body.appendChild(p);
+
+
+setTimeout(
+()=>p.remove(),
+800
+);
+
+}
+
+}
+);
+
+
+/* =========================
+TOUCH EFFECT
+========================= */
+
+document.addEventListener(
+"touchstart",
+function(e){
+
+let touch=e.touches[0];
+
+
+let p=document.createElement("div");
+
+
+p.className="particle";
+
+
+p.innerHTML="♡";
+
+
+p.style.left=
+touch.clientX+"px";
+
+
+p.style.top=
+touch.clientY+"px";
+
+
+document.body.appendChild(p);
+
+
+setTimeout(
+()=>p.remove(),
+800
+);
+
+}
+);
+
+</script>
+
+
+</body>
+</html>
+
